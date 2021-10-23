@@ -11,7 +11,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ExoVideoList">
         <activity
-            android:name=".MainActivity"
+            android:name=".views.MainActivity"
             android:screenOrientation="portrait"
             android:exported="true">
             <intent-filter>
