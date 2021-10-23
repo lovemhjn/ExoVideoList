@@ -25,10 +25,6 @@ class VideoListAdapter(
     private var mItemClickListener: OnItemClickListener? =
         null
 
-    fun updateList(modelList: ArrayList<MediaObject>) {
-        this.modelList = modelList
-        notifyDataSetChanged()
-    }
 
     override fun onCreateViewHolder(
         viewGroup: ViewGroup,
@@ -84,7 +80,7 @@ class VideoListAdapter(
         fun onBind(model: MediaObject) {
             // handle on item click
             binding.root.setOnClickListener {
-                mItemClickListener!!.onItemClick(
+                mItemClickListener?.onItemClick(
                     it,
                     bindingAdapterPosition,
                     model

@@ -43,10 +43,12 @@ class PlayerViewAdapter {
         }
 
         fun playIndexThenPausePreviousPlayer(index: Int){
-            if (playersMap.get(index)?.playWhenReady == false) {
-                pauseCurrentPlayingVideo()
-                playersMap.get(index)?.playWhenReady = true
-                currentPlayingVideo = Pair(index, playersMap.get(index)!!)
+            playersMap[index]?.let {
+                if (!it.playWhenReady) {
+                    pauseCurrentPlayingVideo()
+                    it.playWhenReady = true
+                    currentPlayingVideo = Pair(index, it)
+                }
             }
 
         }
@@ -82,6 +84,8 @@ class PlayerViewAdapter {
             if (item_index != null)
                 playersMap[item_index] = player
 
+            this.player?.volume = 0.0f
+
             this.player?.addListener(object : Player.EventListener {
                 override fun onPlayerError(error: PlaybackException) {
                     super.onPlayerError(error)
@@ -106,7 +110,7 @@ class PlayerViewAdapter {
                         progressbar.visibility = View.GONE
                         // set thumbnail gone
                         thumbnail.visibility = View.GONE
-                        callback.onVideoDurationRetrieved(this@loadVideo.player!!.duration, player)
+                        this@loadVideo.player?.duration?.let { callback.onVideoDurationRetrieved(it, player) }
                     }
 
                     if (playbackState == Player.STATE_READY && player.playWhenReady){
