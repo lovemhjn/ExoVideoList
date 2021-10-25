@@ -46,7 +46,7 @@ class PlayerViewActivity : AppCompatActivity() {
         // When changing track, retain the latest frame instead of showing a black screen
         binding.itemVideoExoplayer.setKeepContentOnPlayerReset(true)
         // We'll show the controller, change to true if want controllers as pause and start
-        binding.itemVideoExoplayer.useController = false
+        binding.itemVideoExoplayer.useController = true
         // Provide url to load the video from here
         val mediaSource = ProgressiveMediaSource.Factory(DefaultHttpDataSourceFactory("Demo")).createMediaSource(
             Uri.parse(url))
