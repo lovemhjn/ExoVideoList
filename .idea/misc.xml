@@ -4,7 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Love Mahajan/AndroidStudioProjects/ExoVideoList/app/src/main/res/layout/activity_main.xml" value="0.2" />
-        <entry key="..\:/Users/Love Mahajan/AndroidStudioProjects/ExoVideoList/app/src/main/res/layout/item_video_list.xml" value="0.2" />
+        <entry key="..\:/Users/Love Mahajan/AndroidStudioProjects/ExoVideoList/app/src/main/res/layout/activity_player_view.xml" value="0.10144927536231885" />
+        <entry key="..\:/Users/Love Mahajan/AndroidStudioProjects/ExoVideoList/app/src/main/res/layout/dialog_video_player.xml" value="0.2" />
+        <entry key="..\:/Users/Love Mahajan/AndroidStudioProjects/ExoVideoList/app/src/main/res/layout/item_video_list.xml" value="0.10679611650485436" />
       </map>
     </option>
   </component>

@@ -10,8 +10,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.app.exovideolist.R
 import com.app.exovideolist.data.models.MediaObject
 import com.app.exovideolist.databinding.ActivityMainBinding
+import com.app.exovideolist.utils.PlayerViewAdapter.Companion.pauseCurrentPlayingVideo
 import com.app.exovideolist.utils.PlayerViewAdapter.Companion.playIndexThenPausePreviousPlayer
 import com.app.exovideolist.utils.PlayerViewAdapter.Companion.releaseAllPlayers
+import com.app.exovideolist.utils.PlayerViewAdapter.Companion.resumeCurrentPlayingVideo
 import com.app.exovideolist.utils.RecyclerViewScrollListener
 import com.app.exovideolist.viewmodels.VideoListViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -58,6 +60,17 @@ class MainActivity : AppCompatActivity() {
 
     override fun onPause() {
         super.onPause()
+        pauseCurrentPlayingVideo()
+    }
+
+    override fun onRestart() {
+        super.onRestart()
+        resumeCurrentPlayingVideo()
+
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
         releaseAllPlayers()
     }
 }

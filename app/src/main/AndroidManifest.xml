@@ -3,6 +3,7 @@
     package="com.app.exovideolist">
 
     <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".BaseApplication"
         android:allowBackup="true"
@@ -12,9 +13,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ExoVideoList">
         <activity
-            android:name=".views.MainActivity"
+            android:name=".views.PlayerViewActivity"
             android:screenOrientation="portrait"
-            android:exported="true">
+            android:exported="false" />
+        <activity
+            android:name=".views.MainActivity"
+            android:exported="true"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

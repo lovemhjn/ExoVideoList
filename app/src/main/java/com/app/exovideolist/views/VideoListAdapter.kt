@@ -22,10 +22,6 @@ class VideoListAdapter(
     private var modelList: List<MediaObject>) : RecyclerView.Adapter<RecyclerView.ViewHolder>(),
     PlayerStateCallback {
 
-    private var mItemClickListener: OnItemClickListener? =
-        null
-
-
     override fun onCreateViewHolder(
         viewGroup: ViewGroup,
         viewType: Int
@@ -63,29 +59,10 @@ class VideoListAdapter(
         return modelList[position]
     }
 
-    fun SetOnItemClickListener(mItemClickListener: OnItemClickListener?) {
-        this.mItemClickListener = mItemClickListener
-    }
-
-    interface OnItemClickListener {
-        fun onItemClick(
-            view: View?,
-            position: Int,
-            model: MediaObject?
-        )
-    }
 
     inner class VideoPlayerViewHolder(private val binding: ItemVideoListBinding) : RecyclerView.ViewHolder(binding.root) {
 
         fun onBind(model: MediaObject) {
-            // handle on item click
-            binding.root.setOnClickListener {
-                mItemClickListener?.onItemClick(
-                    it,
-                    bindingAdapterPosition,
-                    model
-                )
-            }
 
             binding.apply {
                 dataModel = model
